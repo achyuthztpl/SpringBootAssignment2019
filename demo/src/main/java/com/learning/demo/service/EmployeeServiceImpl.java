@@ -16,36 +16,29 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Override
 	public Iterable<Employee> getEmployees() {
-		// TODO Auto-generated method stub
 		return dao.findAll();
 	}
 
 	@Override
 	public Employee getEmployee(Long id) {
-		// TODO Auto-generated method stub
-		Optional<Employee> emp = dao.findById(id); 
-		
-		if(emp.isPresent())
-			return emp.get();
-		
-		return null;
+		Optional<Employee> emp = dao.findById(id);
+
+		return emp.orElse(null);
 	}
 
 	@Override
-	public Employee createEmpoloyee(Employee emp) {
-		// TODO Auto-generated method stub
+	public Employee createEmployee(Employee emp) {
 		return dao.save(emp);
 	}
 
 	@Override
 	public void deleteEmployee(Long id) {
-		// TODO Auto-generated method stub
 		dao.deleteById(id);
 	}
 
 	@Override
 	public Employee updateEmployee(Employee emp) {
-		// TODO Auto-generated method stub
+
 		if(!dao.existsById(emp.getId()))
 			throw new IllegalArgumentException();
 

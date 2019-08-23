@@ -9,7 +9,7 @@ public interface EmployeeService {
 
 	public Employee getEmployee(Long id);
 
-	public Employee createEmpoloyee(Employee emp);
+	public Employee createEmployee(Employee emp);
 
 	public Employee updateEmployee(Employee emp);
 
